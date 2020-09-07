@@ -79,6 +79,7 @@
             this.BorrarToolStripButton.Size = new System.Drawing.Size(44, 59);
             this.BorrarToolStripButton.Text = "Borrar";
             this.BorrarToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BorrarToolStripButton.Click += new System.EventHandler(this.BorrarToolStripButton_Click);
             // 
             // EditarToolStripButton
             // 
@@ -89,6 +90,7 @@
             this.EditarToolStripButton.Size = new System.Drawing.Size(44, 59);
             this.EditarToolStripButton.Text = "Editar";
             this.EditarToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.EditarToolStripButton.Click += new System.EventHandler(this.EditarToolStripButton_Click);
             // 
             // toolStripSeparator1
             // 
@@ -126,8 +128,10 @@
             this.cmnSuperficie});
             this.DatosDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DatosDataGridView.Location = new System.Drawing.Point(0, 0);
+            this.DatosDataGridView.MultiSelect = false;
             this.DatosDataGridView.Name = "DatosDataGridView";
             this.DatosDataGridView.ReadOnly = true;
+            this.DatosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DatosDataGridView.Size = new System.Drawing.Size(768, 388);
             this.DatosDataGridView.TabIndex = 0;
             this.DatosDataGridView.Text = "dataGridView1";

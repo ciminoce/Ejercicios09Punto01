@@ -59,6 +59,7 @@ namespace Ejercicios09Punto01.Windows
             r.Cells[cmnPerimetro.Index].Value = cuadrado.GetPerimetro();
             r.Cells[cmnSuperficie.Index].Value = cuadrado.GetSuperficie();
 
+            r.Tag = cuadrado;//Reservo el cuadrado en la prop. tag de la fila
 
         }
 
@@ -75,12 +76,76 @@ namespace Ejercicios09Punto01.Windows
             FrmCuadradosAE frm=new FrmCuadradosAE();//Creo un form nuevo para ingresar datos del cuadrado
             frm.Text = "Agregar nuevo Cuadrado";//Muestra el texto en la barra de título del form
             DialogResult dr=frm.ShowDialog(this);
+            if (dr==DialogResult.OK)
+            {
+                //Obtengo el cuadrado del otro form
+                Cuadrado cuadrado = frm.GetCuadrado();
+                //le digo al repositorio que lo agregue
+                repositorio.Agregar(cuadrado);
+                //Creo una nueva fila para mostrar los datos del nuevo cuadrado
+                var gridRow = ConstruirFila();
+                //Seteo los datos a mostrar
+                SetearFila(gridRow,cuadrado);
+                //Agrego la fila al grid
+                AgregarFila(gridRow);
+
+            }
             
         }
 
         private void SalirToolStripButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void BorrarToolStripButton_Click(object sender, EventArgs e)
+        {
+            /* Saco un mensaje pidiendo
+             la confirmación del borrado de la fila seleccionada*/
+            DialogResult dr = MessageBox.Show("¿Desea dar de baja la fila seleccionada?",
+                "Confirmar Baja",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question,
+                MessageBoxDefaultButton.Button2);
+            /*Si presionaron que si, borro la fila que se marcó*/
+            if (dr==DialogResult.Yes)
+            {
+                /*De la colección SelectedRows obtengo el índice (index)
+                 del único elemento que puede contener
+                ya que en tiempo de diseño establecí que 
+                únicamente se puede seleccionar una fila por vez */
+                var iFila = DatosDataGridView.SelectedRows[0].Index;
+                /*Luego tomo el índice de la fila a borrar y se lo páso
+                 al método RemoveAt de la colección Rows de la grilla
+                para que borre la fila seleccionada*/
+                DatosDataGridView.Rows.RemoveAt(iFila);
+
+            }            
+        }
+
+        private void EditarToolStripButton_Click(object sender, EventArgs e)
+        {
+            /*Controlo que se haya seleccionado una fila */
+            if (DatosDataGridView.SelectedRows.Count>0)
+            {
+
+                //Obtengo la fila seleccionada
+                var r = DatosDataGridView.SelectedRows[0];
+                //Obtengo el objeto que contiene la prop. tag de la fila
+                Cuadrado cuadrado =(Cuadrado) r.Tag;
+                //Creo el form para poder editar el cuadrado
+                FrmCuadradosAE frm=new FrmCuadradosAE();
+                frm.Text = "Editar un cuadrado";
+                //Tengo que pasar el cuadrado al formulario para editarlo
+                frm.SetCuadrado(cuadrado);
+                DialogResult dr = frm.ShowDialog(this);
+                if (dr==DialogResult.OK)
+                {
+                    cuadrado = frm.GetCuadrado();
+                    SetearFila(r,cuadrado);
+
+                }
+            }
         }
     }
 }

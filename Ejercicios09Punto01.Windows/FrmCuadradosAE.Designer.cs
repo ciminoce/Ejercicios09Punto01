@@ -28,11 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCuadradosAE));
             this.label1 = new System.Windows.Forms.Label();
             this.LadoTextBox = new System.Windows.Forms.TextBox();
             this.OkButton = new System.Windows.Forms.Button();
             this.CancelarButton = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -62,6 +65,7 @@
             this.OkButton.Text = "OK";
             this.OkButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.OkButton.UseVisualStyleBackColor = true;
+            this.OkButton.Click += new System.EventHandler(this.OkButton_Click);
             // 
             // CancelarButton
             // 
@@ -74,6 +78,10 @@
             this.CancelarButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.CancelarButton.UseVisualStyleBackColor = true;
             this.CancelarButton.Click += new System.EventHandler(this.CancelarButton_Click);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // FrmCuadradosAE
             // 
@@ -89,6 +97,7 @@
             this.Name = "FrmCuadradosAE";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmCuadradosAE";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -100,5 +109,6 @@
         private System.Windows.Forms.TextBox LadoTextBox;
         private System.Windows.Forms.Button OkButton;
         private System.Windows.Forms.Button CancelarButton;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

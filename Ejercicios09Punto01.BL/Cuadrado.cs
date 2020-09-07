@@ -9,9 +9,9 @@ namespace Ejercicios09Punto01.BL
         public int Lado
         {
             get { return lado; }
-            set { lado = value; }
+            set{lado = value;}
         }
-        #region Consturctores
+        #region Constructores
         public Cuadrado()
         {
             
