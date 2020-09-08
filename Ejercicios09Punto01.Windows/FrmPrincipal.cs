@@ -27,10 +27,15 @@ namespace Ejercicios09Punto01.Windows
             }
             else
             {
-                lista = repositorio.GetLista();
-                MostrarDatosEnGrilla();
+                CargaInicialDeGrilla();
             }
             
+        }
+
+        private void CargaInicialDeGrilla()
+        {
+            lista = repositorio.GetLista();
+            MostrarDatosEnGrilla();
         }
 
         private void MostrarDatosEnGrilla()
@@ -95,6 +100,7 @@ namespace Ejercicios09Punto01.Windows
 
         private void SalirToolStripButton_Click(object sender, EventArgs e)
         {
+            repositorio.GuardarDatosEnArchivo();
             Application.Exit();
         }
 
@@ -143,9 +149,31 @@ namespace Ejercicios09Punto01.Windows
                 {
                     cuadrado = frm.GetCuadrado();
                     SetearFila(r,cuadrado);
-
                 }
             }
+        }
+
+        private void AscToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            lista=repositorio.GetListaOrdenadaAscendente();
+            MostrarDatosEnGrilla();
+        }
+
+        private void DescToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            lista = repositorio.GetListaOrdenadaDescendente();
+            MostrarDatosEnGrilla();
+        }
+
+        private void ActualizarToolStripButton_Click(object sender, EventArgs e)
+        {
+            CargaInicialDeGrilla();
+        }
+
+        private void FiltroToolStripButton_Click(object sender, EventArgs e)
+        {
+            lista = repositorio.GetListaFiltrada();
+            MostrarDatosEnGrilla();
         }
     }
 }

@@ -34,6 +34,12 @@
             this.BorrarToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.EditarToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.OrdenarToolStripDropDownButton = new System.Windows.Forms.ToolStripDropDownButton();
+            this.AscToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DescToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.FiltroToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.ActualizarToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.SalirToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.DatosDataGridView = new System.Windows.Forms.DataGridView();
@@ -52,6 +58,10 @@
             this.BorrarToolStripButton,
             this.EditarToolStripButton,
             this.toolStripSeparator1,
+            this.OrdenarToolStripDropDownButton,
+            this.FiltroToolStripButton,
+            this.ActualizarToolStripButton,
+            this.toolStripSeparator2,
             this.SalirToolStripButton});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
@@ -96,6 +106,64 @@
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 62);
+            // 
+            // OrdenarToolStripDropDownButton
+            // 
+            this.OrdenarToolStripDropDownButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AscToolStripMenuItem,
+            this.DescToolStripMenuItem});
+            this.OrdenarToolStripDropDownButton.Image = ((System.Drawing.Image)(resources.GetObject("OrdenarToolStripDropDownButton.Image")));
+            this.OrdenarToolStripDropDownButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.OrdenarToolStripDropDownButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.OrdenarToolStripDropDownButton.Name = "OrdenarToolStripDropDownButton";
+            this.OrdenarToolStripDropDownButton.Size = new System.Drawing.Size(63, 59);
+            this.OrdenarToolStripDropDownButton.Text = "Ordenar";
+            this.OrdenarToolStripDropDownButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // AscToolStripMenuItem
+            // 
+            this.AscToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("AscToolStripMenuItem.Image")));
+            this.AscToolStripMenuItem.Name = "AscToolStripMenuItem";
+            this.AscToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.AscToolStripMenuItem.Text = "Ascendente";
+            this.AscToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.AscToolStripMenuItem.Click += new System.EventHandler(this.AscToolStripMenuItem_Click);
+            // 
+            // DescToolStripMenuItem
+            // 
+            this.DescToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("DescToolStripMenuItem.Image")));
+            this.DescToolStripMenuItem.Name = "DescToolStripMenuItem";
+            this.DescToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.DescToolStripMenuItem.Text = "Descendente";
+            this.DescToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.DescToolStripMenuItem.Click += new System.EventHandler(this.DescToolStripMenuItem_Click);
+            // 
+            // FiltroToolStripButton
+            // 
+            this.FiltroToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("FiltroToolStripButton.Image")));
+            this.FiltroToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.FiltroToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.FiltroToolStripButton.Name = "FiltroToolStripButton";
+            this.FiltroToolStripButton.Size = new System.Drawing.Size(44, 59);
+            this.FiltroToolStripButton.Text = "Filtro";
+            this.FiltroToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.FiltroToolStripButton.Click += new System.EventHandler(this.FiltroToolStripButton_Click);
+            // 
+            // ActualizarToolStripButton
+            // 
+            this.ActualizarToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("ActualizarToolStripButton.Image")));
+            this.ActualizarToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.ActualizarToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ActualizarToolStripButton.Name = "ActualizarToolStripButton";
+            this.ActualizarToolStripButton.Size = new System.Drawing.Size(63, 59);
+            this.ActualizarToolStripButton.Text = "Actualizar";
+            this.ActualizarToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.ActualizarToolStripButton.Click += new System.EventHandler(this.ActualizarToolStripButton_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 62);
             // 
             // SalirToolStripButton
             // 
@@ -143,6 +211,7 @@
             this.cmnLado.Name = "cmnLado";
             this.cmnLado.ReadOnly = true;
             this.cmnLado.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.cmnLado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // cmnPerimetro
             // 
@@ -151,6 +220,7 @@
             this.cmnPerimetro.Name = "cmnPerimetro";
             this.cmnPerimetro.ReadOnly = true;
             this.cmnPerimetro.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.cmnPerimetro.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // cmnSuperficie
             // 
@@ -159,6 +229,7 @@
             this.cmnSuperficie.Name = "cmnSuperficie";
             this.cmnSuperficie.ReadOnly = true;
             this.cmnSuperficie.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.cmnSuperficie.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // FrmPrincipal
             // 
@@ -196,5 +267,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cmnLado;
         private System.Windows.Forms.DataGridViewTextBoxColumn cmnPerimetro;
         private System.Windows.Forms.DataGridViewTextBoxColumn cmnSuperficie;
+        private System.Windows.Forms.ToolStripDropDownButton OrdenarToolStripDropDownButton;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem AscToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem DescToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton ActualizarToolStripButton;
+        private System.Windows.Forms.ToolStripButton FiltroToolStripButton;
     }
 }
