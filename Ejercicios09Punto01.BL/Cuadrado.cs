@@ -35,5 +35,20 @@ namespace Ejercicios09Punto01.BL
             return Math.Pow(Lado, 2);
         }
         #endregion
+
+        public override bool Equals(object obj)
+        {
+            if (obj==null || !(obj is Cuadrado))
+            {
+                return false;
+            }
+
+            return this.lado == ((Cuadrado) obj).Lado;
+        }
+
+        public override int GetHashCode()
+        {
+            return this.Lado.GetHashCode();
+        }
     }
 }

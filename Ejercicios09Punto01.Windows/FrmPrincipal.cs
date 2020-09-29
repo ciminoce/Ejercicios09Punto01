@@ -86,13 +86,21 @@ namespace Ejercicios09Punto01.Windows
                 //Obtengo el cuadrado del otro form
                 Cuadrado cuadrado = frm.GetCuadrado();
                 //le digo al repositorio que lo agregue
-                repositorio.Agregar(cuadrado);
-                //Creo una nueva fila para mostrar los datos del nuevo cuadrado
-                var gridRow = ConstruirFila();
-                //Seteo los datos a mostrar
-                SetearFila(gridRow,cuadrado);
-                //Agrego la fila al grid
-                AgregarFila(gridRow);
+                if (!repositorio.Existe(cuadrado))
+                {
+                    repositorio.Agregar(cuadrado);
+                    //Creo una nueva fila para mostrar los datos del nuevo cuadrado
+                    var gridRow = ConstruirFila();
+                    //Seteo los datos a mostrar
+                    SetearFila(gridRow,cuadrado);
+                    //Agrego la fila al grid
+                    AgregarFila(gridRow);
+                    
+                }
+                else
+                {
+                    MessageBox.Show("Cuadrado existente");
+                }
 
             }
             

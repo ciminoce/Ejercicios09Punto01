@@ -8,7 +8,7 @@ namespace Ejercicios09Punto01.DL
 {
     public class RepositorioDeCuadrados
     {
-        public List<Cuadrado> listaCuadrados { get; set; }=new List<Cuadrado>();
+        public List<Cuadrado> ListaCuadrados { get; set; }=new List<Cuadrado>();
 
         public RepositorioDeCuadrados()
         {
@@ -26,7 +26,7 @@ namespace Ejercicios09Punto01.DL
             {
                 var linea = lector.ReadLine();//Leo una linea
                 Cuadrado cuadrado = ConstruirCuadrado(linea);//Construyo el cuadrado
-                listaCuadrados.Add(cuadrado);//lo agrego a la lista del repo
+                ListaCuadrados.Add(cuadrado);//lo agrego a la lista del repo
             }
             lector.Close();
 
@@ -51,7 +51,7 @@ namespace Ejercicios09Punto01.DL
              en el archivo los datos de los cuadrados que tiene el repositorio*/
             StreamWriter escritor=new StreamWriter($"{ruta}\\{archivo}");
             /*recorro la lista */
-            foreach (var cuadrado in listaCuadrados)
+            foreach (var cuadrado in ListaCuadrados)
             {
                 //Por cada cuadrado voy construyendo una línea con sus datos
                 var lineaCsv = ConstruirLinea(cuadrado);
@@ -68,41 +68,45 @@ namespace Ejercicios09Punto01.DL
             
         }
 
+        public bool Existe(Cuadrado cuadrado)
+        {
+            return ListaCuadrados.Contains(cuadrado);
+        }
         public void Agregar(Cuadrado cuadrado)
         {
-            listaCuadrados.Add(cuadrado);
+            ListaCuadrados.Add(cuadrado);
         }
 
         public void Borrar(Cuadrado cuadrado)
         {
-            listaCuadrados.Remove(cuadrado);
+            ListaCuadrados.Remove(cuadrado);
         }
         public List<Cuadrado> GetLista()
         {
-            return listaCuadrados;
+            return ListaCuadrados;
         }
 
         public int GetCantidad()
         {
-            return listaCuadrados.Count;
+            return ListaCuadrados.Count;
         }
 
         public List<Cuadrado> GetListaOrdenadaAscendente()
         {
             /*Retorno la lista ordenada por los lados de los cuadrados */
-            return listaCuadrados.OrderBy(c => c.Lado).ToList();
+            return ListaCuadrados.OrderBy(c => c.Lado).ToList();
         }
 
         public List<Cuadrado> GetListaOrdenadaDescendente()
         {
             /*Retorno la lista ordenada descendentemente por los lados de los cuadrados */
 
-            return listaCuadrados.OrderByDescending(c => c.Lado).ToList();
+            return ListaCuadrados.OrderByDescending(c => c.Lado).ToList();
         }
 
         public List<Cuadrado> GetListaFiltrada()
         {
-            return listaCuadrados.Where(c => c.Lado > 10).ToList();
+            return ListaCuadrados.Where(c => c.Lado > 10).ToList();
         }
     }
 }
